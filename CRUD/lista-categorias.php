@@ -18,24 +18,23 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            
+          <?php
+          $sql = 'SELECT * FROM categorias';
+          $resultado = mysqli_query($conexao, $sql);
+          if (mysqli_num_rows($resultado) > 0) {
+              while ($row = mysqli_fetch_assoc($resultado)) {
+                  echo "<tr>";
+                  echo "<td>" . $row['CategoriaID'] . "</td>";
+                  echo "<td>" . $row['Nome'] . "</td>";
+                  echo "<td>"  . $row['Descricao'] . "</td>";
+                  echo "<td>
+                          <a href='salvar-cargos.php?id=" . $row['CategoriaID'] . "' class='btn btn-edit'>Editar</a>
+                          <a href='#' class='btn btn-delete'>Excluir</a>
+                        </td>";
+                  echo "</tr>";
+              }
+          }
+          ?>
           </tbody>
         </table>
       </div>

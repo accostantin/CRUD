@@ -14,7 +14,7 @@ include_once './include/header.php';
             <tr>
               <th>ID</th>
               <th>Nome</th>
-              <th>Teto Salárial</th>
+              <th>Teto Salarial</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -27,7 +27,7 @@ include_once './include/header.php';
                   echo "<tr>";
                   echo "<td>" . $row['CargoID'] . "</td>";
                   echo "<td>" . $row['Nome'] . "</td>";
-                  echo "<td>" . $row['TetoSalarial'] . "</td>";
+                  echo "<td> R$ " . $row['TetoSalarial'] . "</td>";
                   echo "<td>
                           <a href='salvar-cargos.php?id=" . $row['CargoID'] . "' class='btn btn-edit'>Editar</a>
                           <a href='#' class='btn btn-delete'>Excluir</a>
